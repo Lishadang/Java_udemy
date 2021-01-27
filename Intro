@@ -1,0 +1,77 @@
+Java was conceived in 1991 at Sun Microsystems and named Oak.
+Renamed to java in 1995
+Java was influenced by C++
+Java considered to be one of the most popular programming language nowadays.
+Platform independent,multithreading,robust,secure,truly object oriented,easy to learn.
+Sun Microsystem acquisition by Oracle in 2010.
+
+Web Applications
+Desktop Applications
+Mobile Applications
+
+Fundamentals
+Core-JDK&Programming
+Enterprise-Web applications
+
+Software Engineer
+QA Automation
+Android Developer
+IT Bulls Internship
+
+JVM<JRE<JDK
+
+jdk java net
+
+Console application
+stdin
+stdout
+stderr
+
+java-javc->.class-java->jvm
+
+notepad Hello world.java
+touch Hello world.java
+
+public class Helloworld{
+	public static void main(String[] args){
+		System.out.println("Hello World");
+	}
+}
+
+@echo off
+
+javac *.java
+java HelloWorld
+
+del *.class
+
+IDE
+Maximize productivity
+EClipse
+IntellijIdea
+Netbeans
+Andoid Studio
+
+Eclipse
+elclipse for java ee developers download
+
+ctrl+f11
+rightclick run as java application
+sysout ctrl+space
+new class
+
+package com.itbulls.piatakha;
+public class HelloWorld {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Hello World");
+	}
+}
+
+Comment single line//
+multi line ctrl+/ /* */
+doc /**
+
+project generate javadoc
+index.html rght click web browser 
