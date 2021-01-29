@@ -1,0 +1,90 @@
+Program starts and asks user to enter integer number
+Program prints each digit from new line
+12345
+1
+2
+3
+4
+5
+
+package com.itbulls.learnit.javacore.controlstatements.loops.hw;
+
+import java.util.Scanner;
+
+public class NewLineForDigit {
+
+	public static void main(String[] args) {
+		System.out.print("Please, enter any integer: ");
+		Scanner sc = new Scanner(System.in);
+		String intString = sc.next();
+		for (char digit : intString.toCharArray()) {
+			System.out.println(digit);
+		}
+	}
+}
+
+Program starts and asks user to enter the height of the pyramid.
+Program draws such picture in console.
+
+Height of pyramid is 4
+*
+**
+***
+****
+***
+**
+*
+
+package com.itbulls.learnit.javacore.controlstatements.loops.hw;
+
+import java.util.Scanner;
+
+public class PyramidInConsole {
+	
+	public static void main(String[] args) {
+		System.out.print("Please, enter height of the pyramid: ");
+		Scanner sc = new Scanner(System.in);
+		int height = sc.nextInt();
+		
+		for (int i = 1; i < height + 1; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();	
+		}
+		for (int i = height - 1; i > 0; i--) {
+			for (int j = 0; j < i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();	
+		}
+	}
+
+}
+
+program starts and prints matrix to console
+
+Matrix to point:
+{1,2,3,4,5}
+{6,7}
+{8,9,10}
+package com.itbulls.learnit.javacore.controlstatements.loops.hw;
+
+public class PrintMatrixToConsole {
+
+	public static void main(String[] args) {
+		int[][] matrix = {
+				{1, 2, 3, 4, 5,},
+				{6, 7},
+				{8, 9, 10}
+		};
+		
+		for(int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[i].length; j++) {
+				System.out.print(matrix[i][j] + "\t");
+			}
+			System.out.println();
+		}
+	}
+	
+}
