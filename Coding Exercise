@@ -1,0 +1,72 @@
+Simple Console Integer Calculator
+Sum of Integers to console
+
+package com.itbulls.learnit.javacore.operations.hw;
+
+public class AddIntegers {
+	
+	public static void main(String[] args) {
+		System.out.println(Integer.parseInt(args[0]) 
+				+ Integer.parseInt(args[1]));
+	}
+
+}
+
+Calculate Area of Triangle
+Program asks the user lengths of side A, side B, side C of triangle
+using the heron's formula program calculate area of triangle and shows it to the user
+In case if the triangle does not exists print to console 'NaN'
+
+package com.itbulls.learnit.javacore.operations.hw;
+
+import java.util.Scanner;
+
+public class AreaOfTriangle {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("This program will calculate area of triangle.");
+		System.out.print("Please, enter A side of a triangle: ");
+		double aSide = sc.nextDouble();
+		
+		System.out.print("Please, enter B side of a triangle: ");
+		double bSide = sc.nextDouble();
+		
+		System.out.print("Please, enter C side of a triangle: ");
+		double cSide = sc.nextDouble();
+		
+		double p = (aSide + bSide + cSide) / 2;
+		double triangleArea = Math.sqrt(p * (p - aSide) 
+				* (p - bSide) * (p - cSide));
+		
+		System.out.println("Triangle area is: " + triangleArea);
+	}
+}
+
+Calculate Circle Circumference
+enter circle radius calculate circle circumference and prints circumference of circle.
+
+package com.itbulls.learnit.javacore.operations.hw;
+
+import java.util.Scanner;
+
+public class CircleCircumference {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("This program will calculate circle circumference.");
+		System.out.print("Please, enter circle radius: ");
+		double radius = sc.nextDouble();
+		
+		double circleCircumference = 2 * Math.PI * radius;
+		
+		System.out.println("Circle circumference is: " + circleCircumference);
+	}
+
+}
+
+-Xmx1g jvm arguments
+run as ->run configurations ->select program and pass argument
+
+ctrl+f11 to open console
