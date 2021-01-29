@@ -1,0 +1,675 @@
+Program started and ask user to input integer numbers separated by space
+Program creates array object with enterd numbers
+program calls specific method which takes int[] as an parameter and returns max value in this array
+	public static int find MaxIntInArray(int[] intArray){
+	}
+  
+  package com.itbulls.learnit.javacore.methods.hw;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class FindMaxInt {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Please, enter integer numbers separated by space: ");
+		String numbers = sc.nextLine();
+		int[] intArray = convertStringArrayToIntArray(numbers.split("\\s+"));
+		int maxInt = findMaxIntInArray(intArray);
+		System.out.println("*** Initial Array ***");
+		System.out.println(Arrays.toString(intArray));
+		System.out.println("*** Max number in array ***");
+		System.out.println(maxInt);
+	}
+
+	
+	public static int findMaxIntInArray(int[] intArray) {
+		int max = intArray[0];
+		for (int i : intArray) {
+			if (i > max) {
+				max = i;
+			}
+		}
+		return max;
+	}
+
+	private static int[] convertStringArrayToIntArray(String[] stringArray) {
+		int[] intArray = new int[stringArray.length];
+		for (int i = 0; i < stringArray.length; i++) {
+			intArray[i] = Integer.valueOf(stringArray[i]);
+		}
+		return intArray;
+	}
+	
+	// ====================== SOLUTION WITH STREAM API
+	
+	public static int findMaxIntInArrayStreamApi(int[] intArray) {
+		return Arrays.stream(intArray).max().getAsInt();
+	}
+
+	private static int[] convertStringArrayToIntArrayStreamApi(String[] stringArray) {
+		return Arrays.stream(stringArray)
+				.mapToInt(s -> Integer.valueOf(s))
+				.toArray();
+	}
+
+}
+
+Program starts and ask user to input height of the rectangle
+After user input height of rectangle,program asks to input width of rectangle
+Program calls specific method which takes two parameters of in type which prints rectangle to the console.
+package com.itbulls.learnit.javacore.methods.hw;
+
+import java.util.Scanner;
+
+public class EmptyRectangle {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Please, enter height of rectangle: ");
+		int height = sc.nextInt();
+		System.out.print("Please, enter width of rectangle: ");
+		int width = sc.nextInt();
+		
+		drawRectangle(height, width);
+	}
+
+	public static void drawRectangle(int height, int width) {
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				if (j == 0 || j == width - 1 || i == 0 || i == height -1) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+				
+			}
+			System.out.println();
+		}
+	}
+
+}
+
+Program starts and ask user to enter text.
+Program calls specific function which takes one parameter of string type and returns amount of words in the text.
+
+	public static int getWordsAmount(string text)
+	{
+	}
+
+package com.itbulls.learnit.javacore.methods.hw;
+
+import java.util.Scanner;
+
+public class AmountOfWords {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Please, enter any text: ");
+		String userInput = sc.nextLine();
+		
+		int amountOfWords = getWordsAmount(userInput);
+		System.out.println("Amount of words in your text: " + amountOfWords);
+	}
+
+	public static int getWordsAmount(String text) {
+		return text.split("[\\p{P}\\s]+").length;
+	}
+}
+
+Program starts and ask user to enter random words separated by space.
+Program asks user to enter minimum length of string to filter words which were enterd
+Program creates array object from entered words
+Program calls specific method which takes String[] as a parameter and returns array of strings which contains words that have length more or equal to value specified by user
+	public static String[] filterWordsByLength(int minLength,String[] words)
+	{
+	}
+
+package com.itbulls.learnit.javacore.methods.hw;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class FilterStringArray {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Please, enter any words separated by space: ");
+		String userInput = sc.nextLine();
+		System.out.print("Please, enter minumum word length to filter words: ");
+		int minLength = sc.nextInt();
+		
+		String[] words = userInput.split("\\s+");
+		String[] filteredWords = filterWordsByLength(minLength, words);
+		System.out.println(Arrays.toString(filteredWords));
+	}
+
+	
+	
+	public static String[] filterWordsByLength(int minLength, String[] words) {
+		String[] filteredArray = new String[words.length];
+		for (int i = 0; i < words.length; i++) {
+			if (words[i].length() >= minLength) {
+				filteredArray[i] = words[i];
+			}
+		}
+		
+		filteredArray = filterNulls(filteredArray);
+		
+		return filteredArray;
+	}
+
+
+
+	private static String[] filterNulls(String[] arr) {
+		int newArraySize = 0;
+		for (String word : arr) {
+			if (word != null) {
+				newArraySize++;
+			}
+		}
+		
+		String[] filteredArray = new String[newArraySize];
+		
+		int filteredArrayIndex = 0;
+		for (String word : arr) {
+			if (word != null) {
+				filteredArray[filteredArrayIndex++] = word;
+			}
+		}
+		
+		return filteredArray;
+	}
+
+
+
+	//===================== SOLUTION WITH STREAM API
+	
+	public static String[] filterWordsByLengthStreamApi(int minLength, String[] words) {
+		return Arrays.stream(words)
+				.filter(s -> s.length() >= minLength)
+				.toArray(String[]::new);
+	}
+
+}
+
+Program starts and ask user to specify Matrix size.
+How much do you want to rotate matrix
+90 degree
+180 degree
+270 degree
+	public static void rotate270(double[][] matrix){
+	}
+
+	package com.itbulls.learnit.javacore.methods.hw;
+
+import java.util.Scanner;
+
+public class MatrixRotation {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+
+		System.out.print("Please, enter matrix size: ");
+		int size = in.nextInt();
+		double[][] matrix = generateMatrix(size);
+
+		System.out.println("How you want to rotate matrix:" + System.lineSeparator() +
+				"\t1 - 90" + System.lineSeparator() +
+				"\t2 - 180" + System.lineSeparator() +
+				"\t3 - 270");
+		int mode = in.nextInt();
+
+		System.out.println(System.lineSeparator() + "Base matrix:" + System.lineSeparator());
+		printMatrixToConsole(matrix);
+		System.out.println();
+
+		if (rotateMatrix(matrix, mode)) {
+			printMatrixToConsole(matrix);
+		}
+	}
+
+	private static double[][] generateMatrix(int size) {
+		double[][] matrix = new double[size][size];
+
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				matrix[i][j] = Double.valueOf(Integer.toString(i) + "." 
+						+ Integer.toString(j));
+			}
+		}
+		return matrix;
+	}
+
+	private static boolean rotateMatrix(double[][] matrix, int mode) {
+		switch (mode) {
+			case 1:
+				System.out.println("90 degrees rotated:" + System.lineSeparator());
+				rotate90(matrix);
+				break;
+			case 2:
+				System.out.println("180 degrees rotated:" + System.lineSeparator());
+				rotate180(matrix);
+				break;
+			case 3:
+				System.out.println("270 degrees rotated:" + System.lineSeparator());
+				rotate270(matrix);
+				break;
+			default:
+				System.out.println("You selected non-existing mode!");
+				return false;
+			}
+		return true;
+	}
+	
+	private static void transposeMatrix(double[][] matrix) {
+		double temp;
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < i; j++) {
+				temp = matrix[i][j];
+				matrix[i][j] = matrix[j][i];
+				matrix[j][i] = temp;
+			}
+		}
+	}
+
+	private static void verticalReflection(double[][] matrix) {
+		double temp;
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix.length / 2; j++) {
+				temp = matrix[i][j];
+				matrix[i][j] = matrix[i][matrix.length - 1 - j];
+				matrix[i][matrix.length - 1 - j] = temp;
+			}
+		}
+	}
+
+	private static void horizontalReflection(double[][] matrix) {
+		double temp;
+		for (int i = 0; i < matrix.length / 2; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				temp = matrix[i][j];
+				matrix[i][j] = matrix[matrix.length - 1 - i][j];
+				matrix[matrix.length - 1 - i][j] = temp;
+			}
+		}
+	}
+
+	public static void rotate90(double[][] matrix) {
+		transposeMatrix(matrix);
+		verticalReflection(matrix);
+	}
+
+	public static void rotate180(double[][] matrix) {
+		verticalReflection(matrix);
+		horizontalReflection(matrix);
+	}
+
+	public static void rotate270(double[][] matrix) {
+		transposeMatrix(matrix);
+		horizontalReflection(matrix);
+	}
+
+	private static void printMatrixToConsole(double[][] matrix) {
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				System.out.print(matrix[i][j] + "\t");
+			}
+			System.out.println();
+		}
+	}
+
+	
+
+}
+
+Program starts and ask user to enter length of array
+Program generates array of random integer numbers with array length specified by user
+	public static int generateRandomArray(int amountOfElements){
+	}
+Program creates second array with size of twice as much as first array
+array multiplied by two.
+	public static int[] ectendArray(int[] arr){
+	}
+	
+  package com.itbulls.learnit.javacore.methods.hw;
+
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+public class ArrayExtension {
+
+	public static final int MULTIPLIER = 2;
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Please, enter length of initial array: ");
+		int baseArrayLength = sc.nextInt();
+		int[] arr = generateRandomArray(baseArrayLength);
+		int[] extendedArray = extendArray(arr);
+		System.out.println("*** Initial array ***");
+		System.out.println(Arrays.toString(arr));
+		System.out.println("*** Extended array ***");
+		System.out.println(Arrays.toString(extendedArray));
+	}
+
+	/**
+	 * The method extends array.
+	 * If array {1, 2, 3} has been passed to this method then array {1, 2, 3, 2, 4, 6}
+	 * is returned from this method.
+	 * 
+	 * @param arr - base of extension. Extended array contains elements from this array
+	 * and additionally contains the same elements multiplied by two. 
+	 * @return extended array.
+	 */
+	public static int[] extendArray(int[] arr) {
+		int newArrayLenght = arr.length * 2;
+		int[] resultArray = Arrays.copyOf(arr, newArrayLenght);
+		
+		for (int i = arr.length; i < newArrayLenght; i++) {
+			resultArray[i] = arr[i - arr.length] * MULTIPLIER;
+		}
+		
+		return resultArray;
+	}
+
+	public static int[] generateRandomArray(int amountOfElements) {
+		Random r = new Random();
+		int[] resultArray = new int[amountOfElements];
+		for (int i = 0; i < amountOfElements; i++) {
+			resultArray[i] = r.nextInt(100) + 1;
+		}
+		return resultArray;
+	}
+
+}
+
+Program starts and ask user to enter two numbers separated by space
+Program calls method to find greatest common divisor
+	public static int gcdRecursive(int firstNumber, int secondNumber){
+	}
+
+package com.itbulls.learnit.javacore.methods.hw;
+
+import java.util.Scanner;
+
+public class GreatestCommonDivisor {
+	
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Please, enter two numbers separated by space: ");
+		String userInput = sc.nextLine();
+		
+		String[] inputArgumentsArray = userInput.split("\\s+");
+		int number1 = Integer.parseInt(inputArgumentsArray[0]);
+		int number2 = Integer.parseInt(inputArgumentsArray[1]);
+
+		System.out.println(gcdRecursive(number1, number2));
+	}
+	
+	public static int gcdRecursive(int firstNumber, int secondNumber) {
+		if (secondNumber == 0) {
+			//for the case firstNumber is negative
+			return Math.abs(firstNumber); 
+		} else {
+			return gcdRecursive(secondNumber, firstNumber % secondNumber);
+		}
+		
+	}
+	
+
+	
+
+}
+
+Program starts and ask user to enter number
+Program calls method which takes int as an argument & returns sum of all digits in this number
+	public static int sumDigitsInPositiveNumber(int number){
+	}
+
+
+
+String Processor
+package com.itbulls.learnit.javacore.methods.hw;
+
+public class StringProcessor {
+	
+	// TODO: mention StringBuilder 
+	
+	public static final String INPUT_DATA = "Login;Name;Email" + System.lineSeparator() +
+			"peterson;Chris Peterson;peterson@outlook.com" + System.lineSeparator() +
+			"james;Derek James;james@gmail.com" + System.lineSeparator() +
+			"jackson;Walter Jackson;jackson@gmail.com" + System.lineSeparator() +
+			"gregory;Mike Gregory;gregory@yahoo.com";
+	
+	public static void main(String[] args) {
+		System.out.println("===== Convert 1 demo =====");
+		System.out.println(convert1(INPUT_DATA));
+		
+		System.out.println("===== Convert 2 demo =====");
+		System.out.println(convert2(INPUT_DATA));
+		
+	}
+	
+	public static String convert1(String input) {
+		String result = "";
+		String[] lines = input.split(System.lineSeparator());
+		for (int i = 1; i < lines.length; i++) {
+			String[] wordsInLine = lines[i].split(";");
+			result += wordsInLine[0] + " ==> " + wordsInLine[2] + System.lineSeparator();
+		}
+		return result;
+	
+	}
+	
+	
+	public static String convert2(String input) {
+		String result = new String();
+		String[] lines = input.split(System.lineSeparator());
+		for (int i = 1; i < lines.length; i++) {
+			String[] wordsInLine = lines[i].split(";");
+			result += wordsInLine[1] + " (email: " + wordsInLine[2] + ")" + System.lineSeparator();
+		}
+		return result;
+	
+	}
+
+}
+Turn each first letter in the word to capital
+package com.itbulls.learnit.javacore.methods.hw;
+
+import java.util.Scanner;
+
+public class FirstCharCapital {
+
+	
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Please, enter any text: ");
+		String userInput = sc.nextLine();
+		
+		
+		System.out.println(firstCharToTitleCase(userInput));
+	}
+
+	public static String firstCharToTitleCase(String string) {
+		char[] chars = string.toLowerCase().toCharArray();
+		boolean found = false;
+		for (int i = 0; i < chars.length; i++) {
+			if (!found && Character.isLetter(chars[i])) {
+				chars[i] = Character.toUpperCase(chars[i]);
+				found = true;
+			} else if (Character.isWhitespace(chars[i])) {
+				found = false;
+			}
+		}
+		return String.valueOf(chars);
+	}
+}
+
+Covert Decimal to Roman Numbers
+package com.itbulls.learnit.javacore.methods.hw;
+
+import java.util.Scanner;
+
+public class ConvertDecimalToRoman {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		mainLoop: while (true) {
+			System.out.print("Please, select mode. If you want to convert Roman "
+					+ "numbers to decimal - type 'R2D' and press enter."
+					+ System.lineSeparator()
+					+ "If you want to convert decimal numbers to Roman - type 'D2R' and press enter: ");
+
+			String mode = sc.next();
+			if (mode.equalsIgnoreCase("R2D")) {
+				while (true) {
+					System.out.print("Please, enter Roman number you want to convert: ");
+					String romanNumber = sc.next();
+					if (isRomanNumberValid(romanNumber)) {
+						System.out.println(roman2Decimal(romanNumber));
+						break mainLoop;
+					} else {
+						System.out.println("You entered invalid Roman number. "
+								+ "Please, try one more time.");
+						continue;
+					}
+				}
+			} else if (mode.equalsIgnoreCase("D2R")) {
+				while (true) {
+					System.out.print("Please, enter decimal number "
+							+ "you want to convert: ");
+					int decimalNumber = sc.nextInt();
+					if (isDecimalNumberValid(decimalNumber)) {
+						System.out.println(decimal2Roman(decimalNumber));
+						break mainLoop;
+					} else {
+						System.out.println("Please, enter positive integer from 1 to 100.");
+						continue;
+					}
+
+				}
+
+			}
+			
+			System.out.println("Please, enter 'R2D' or 'D2R.");
+		}
+	}
+
+	
+
+	/**
+	 * Converts decimal numbers to Roman.
+	 * 
+	 * Takes int value as a parameter. Works only with numbers from 1 to 100.
+	 * 
+	 * @param number to convert to Roman.
+	 * @return string of Roman number.
+	 */
+	public static String decimal2Roman(int number) {
+		String[] a = new String[] { "I", "IV", "V", "IX", "X", "XL", "L", "XC", "C" };
+		int[] b = new int[] { 1, 4, 5, 9, 10, 40, 50, 90, 100 };
+		StringBuilder s = new StringBuilder();
+		for (int i = a.length - 1; i >= 0; i--) {
+			while (number >= b[i]) {
+				s.append(a[i]);
+				number -= b[i];
+			}
+		}
+		return s.toString();
+	}
+
+	/**
+	 * Converts Roman numbers to decimal.
+	 * 
+	 * Takes string value with Roman number as a parameter.
+	 * 
+	 * At first method validates if input string could be Roman number. After method
+	 * uses algorithm to convert Roman numeral to decimal.
+	 * 
+	 * @param romanNumber
+	 * @return decimal representation of Roman number
+	 */
+
+	public static int roman2Decimal(String romanNumber) {
+		String romanNumeral = romanNumber.toUpperCase();
+
+		int decimal = 0;
+		int lastNumber = 0;
+
+		for (int x = romanNumeral.length() - 1; x >= 0; x--) {
+			char convertToDecimal = romanNumeral.charAt(x);
+
+			switch (convertToDecimal) {
+			case 'C':
+				decimal = processDecimal(100, lastNumber, decimal);
+				lastNumber = 100;
+				break;
+
+			case 'L':
+				decimal = processDecimal(50, lastNumber, decimal);
+				lastNumber = 50;
+				break;
+
+			case 'X':
+				decimal = processDecimal(10, lastNumber, decimal);
+				lastNumber = 10;
+				break;
+
+			case 'V':
+				decimal = processDecimal(5, lastNumber, decimal);
+				lastNumber = 5;
+				break;
+
+			case 'I':
+				decimal = processDecimal(1, lastNumber, decimal);
+				lastNumber = 1;
+				break;
+
+			}
+
+		}
+		return decimal;
+
+	}
+
+	/**
+	 * Utility method which is the part of algorithm that converts Roman numbers to
+	 * decimal.
+	 * 
+	 * @param decimal
+	 * @param lastNumber
+	 * @param lastDecimal
+	 * @return int value
+	 */
+	private static int processDecimal(int decimal, int lastNumber, int lastDecimal) {
+		if (lastNumber > decimal) {
+			return lastDecimal - decimal;
+		} else {
+			return lastDecimal + decimal;
+		}
+	}
+
+	/**
+	 * Validation for Roman numbers.
+	 * 
+	 * Use regular expression which is checking if string really could be Roman
+	 * number.
+	 * 
+	 * @param romanNumber
+	 * @return true if String is Roman number
+	 */
+	public static boolean isRomanNumberValid(String romanNumber) {
+		return romanNumber
+				.matches("^(?i)M{0,3}(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])$");
+	}
+	
+	public static boolean isDecimalNumberValid(int decimalNumber) {
+		return decimalNumber > 0 && decimalNumber <= 100;
+	}
+}
