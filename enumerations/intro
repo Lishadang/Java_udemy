@@ -7,6 +7,12 @@ new-> enum
 
 package com.itbulls.learnit.javacore.enumerations;
 
+public enum Priority {
+	HIGH, MEDIUM, LOW;
+}
+
+package com.itbulls.learnit.javacore.enumerations;
+
 public class EnumDemo {
 
 	public static void main(String[] args) {
