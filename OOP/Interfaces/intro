@@ -6,4 +6,5 @@ default method & static method
 
 Abstract class vs interface
 
-
+Type summarizes the common features of some objects with same characterstics
+Group of method implementation of the type
