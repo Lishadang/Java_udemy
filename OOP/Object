@@ -1,0 +1,13 @@
+Object
+everything is object
+virtual entity have its own behavior
+ctrl+shft+t
+object class
+
+JNI
+
+native keyword
+foreign function running in jvm such as c or c++
+only with methods
+
+@Deprecated annotation
