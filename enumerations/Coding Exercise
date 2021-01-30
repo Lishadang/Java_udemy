@@ -1,0 +1,32 @@
+Program starts and ask user to enter message type
+Only 'A','B','C','D' message types are allowed.
+In case user entered invalid message type program asks to enter message type again.
+When valid message type is entered program prints message type priority to console '
+Priority and Message Type implemented as enum types
+Message type have next priorities.
+Message Type Priority
+HIGH
+MEDIUM 
+LOW
+LOW
+
+public Priority getPriority(){
+}
+
+package com.itbulls.learnit.javacore.enumerations.hw;
+
+public enum MessageType {
+
+	A(Priority.HIGH), B(Priority.MEDIUM), C(Priority.LOW), D(Priority.LOW);
+	
+	private Priority priority;
+	
+	private MessageType(Priority priority) {
+		this.priority = priority;
+	}
+	
+	public Priority getPriority() {
+		return this.priority;
+	}
+	
+}
