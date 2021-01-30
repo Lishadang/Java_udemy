@@ -1,0 +1,23 @@
+OOP Basics
+OOp is a programming paradigm based on the concept of 'object
+
+OOP vs Functional Programming
+OOP is a computer programming model that organizes software design around the objects, rather than functions
+Modularity,Scalability,Lower cost of development,security & reliability
+
+OOP is a software design approach in which concept of 'object' occupies the first place
+
+Array is a object,data connection is object
+Imagine a car doors ,wheels,body,engine,color.
+Behavior:
+Turn on headlights,start engine,turn right,turn left
+Object is a virtual entity with specific list of properties which can distingish it from manipulating behavior
+data+behavior->object
+
+Class is a template for object car class have diff properties
+
+OOP principles
+Inheritance ->sports car same wheels share oproperties and behavior 
+Encapsulation ->methods+variables button,access modifiers private public protected,default
+Polymorphism ->one interface-multiple implementation engine start override behavior method overriding
+Abstraction ->car & plane 
