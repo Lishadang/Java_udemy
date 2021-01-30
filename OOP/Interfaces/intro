@@ -1,0 +1,9 @@
+Interfaces
+abstraction defines the behavioral present in each class following interface
+method without body
+public & abstract -> can't change
+default method & static method
+
+Abstract class vs interface
+
+
