@@ -1,0 +1,26 @@
+s-single responsibility principle
+a class should have only one reason to change
+focusing on one class make code more robust
+class has to be small
+discount calculation logic
+discountservice,cart,order
+tax calculation logic
+cart,user->cart same
+responsibilty is group of actions
+
+o-open/closed principle
+software entities (classes,modules,functions etc) should be open for extension, but closed for modification
+abstraction will help to achieve this
+it means source code not to be change
+
+l-liskov substitution principle
+objects in a program should be replacable with instances of their subtypes without altering the corectness of that program
+polymorphism
+t type <- s type <- c type
+
+i- interface segregation principle
+no client should be forced to depend on methods it does not use.
+
+d-dependency inversion principle
+High level module should not depend on low level modules.Both should depend on abstractions.
+Abstractions should not depend on details,Details depend on abstractions.
