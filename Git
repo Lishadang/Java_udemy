@@ -1,0 +1,158 @@
+Version Control System-Git,CVS,mercurial,Bazaar,Subversion
+
+merge code together
+Git Knowing is like a piece of cake
+Links of snpashot changes in file
+hash code of 16 digits
+Centralized VCS all people are connected to the centeral system and contribute to that server when central version is down 
+Distributed VCS uu dont need information from other computer history of all files have separate copy
+instant access
+
+Git Basics
+Working Directory-> stage fixes
+Staging Area-> commit
+.git directory-> checkout the project
+
+Git workflow
+Do changes
+Add file to staging area
+Commit changes
+
+
+Git bash 
+Git Gui
+Configuration Levels
+System->All users+all other repositories
+Global->all repositories on computer for current user
+Local->Only current repository
+
+Local git repository->git init
+Git init
+git add-> git add *.java,git add .
+git commit-add to staging area, to make changes, git commit -m "init commit"
+git status -s[modified] 
+Branch-each branch contain snapshot of history master(single)
+Tracked vs Untracked files->present in the working directory and not in the staging area and not present in last snapshot and are not aware
+ctrl+l-> to clear git bash
+hint-git status --help,git status -h
+modified - git status -s,git commit -a -m "new changes"
+
+Git ignoring & git log
+.gitignore file
+git rm --cached .classpath
+git status[untracked remove from staging area]
+r->recusrive
+git rm -r --cache bin/
+git status
+touch .gitignore
+nano .gitignore
+*.class
+bin/
+.classpath
+ctrl+x y enter
+does n't tell any file
+
+https://github.com/github/gitignore
+
+git add .
+git commit -m "added .gitignore and removed bin/ from staging"
+git log->prints commit history[reverse chronological]
+
+git log -2
+
+git log --pretty=oneline
+
+Git undoing things & Vi text editor
+amend last commit->git commit --amend[current staging area]
+change commit message->git commit --amend
+unstage changes->git restore --staged src/HelloWorld.java
+Tab key to autocompletion
+git restore->git restore src/HelloWorld.java
+git config --global core.editor "vi"
+k(up)
+h(left)
+L(right)
+J(down)
+I(insert)
+:wq(save changes)w-write,q-quit
+
+
+git config --global core.editor "notepad
+git add .
+git commit --amend --no-edit,checksum change
+touch someImportantConfigs.tct
+git add .
+
+Git hosting & remote repositories
+Remote repository-we work as a software enginner remote repository is available on internet
+Github,Bitbucket(issue tracking jira),GitLab
++->new repository->learnit-git->create repository
+https->local to remote
+git remote -v
+git remote add origin "https url" 
+git push origin -u master
+code>rght clck->git clone paste url
+
+SSH Connection,SSH Keys
+SSH (Secure Socket Shell)local(private)->remote(public)
+Usernamme &Password
+ServerSide&Client Side
+rght clck->Git GUI->Help->Show SSH Key->Generate key
+settings-SSH Keys
+ADD new title my laptop ->ctrl+v 
+
+git remote -v
+code->SSH-> git remote set-url origin SSHurl
+git remote -v
+git commit -a -m "test SSH connection"
+git push
+
+Git Branching
+https://www.rapidtables.com/code/linux/ls.html
+master->your work->someone else's work
+Head Pointer
+Diverged branches
+git branch TA0001
+git branch
+git branch -r
+git branch -a
+git checkout[new branch] -b[branch] TA0001_discount_calculation
+cd src
+touch DiscountCalculationService.java
+ls
+git add .
+git commit -m "Personal discount for user can be calculated"
+git checkout master
+
+
+Pull request[method of submitting contribution]change from one branch to another to review from other user
+&merge request[ask somebody to verify change & add]
+
+Updating local repository[work with other code]
+fetch->git switch master ->cd src->ls -l,git fetch[fetches all changes from remote repository] ,
+merge->git merge
+pull->nano HelloWorld.java,git pull[combination of two function fetch &merge] 
+
+Exercise
+D1 git status,git switch-c TA002_virtual_cart,mkdir cart,cd cart, touch CartManagementService.java,git add .,git commit -m "Cart Management is implemented", git push -u origin TA002_virtual_cart,create pull request
+D2 git switch master, cd.., git switch -c TA003_stock_management,mkdir stock,cd stock, touch stockManagementService.java,git add ., git commit -m "Stock Management is implemented", git push -u origin TA003_stock_management,create pull request
+merge pull request wd third option
+
+git switch master
+cd../../
+git pull
+
+Merge conflict
+master Hello World! Hello cat!
+alice/master Hello dog!
+D1->home.html
+D2->home.html
+merge conflict becoz both worked on same file
+D1->git switch -c TA004_login_styling,mkdir styles,touch styles/login.css,nano webcontent/home.html <link rel="stylesheet"href="../styles/login.css"/>,git add ., git commit -m "loin popup during login",git push -u origin TA004_login_styling
+D2->same as D1
+
+
+
+
+
+
